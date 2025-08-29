@@ -86,3 +86,38 @@ cat > vercel.json << 'EOF'
 }
 EOF
 ```
+
+## バックエンド基本ファイル
+```bash
+# api/main.py（FastAPIメインアプリ）
+cat > api/main.py << 'EOF'
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="Backend")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+EOF
+
+# api/index.py（Vercelエントリーポイント）
+cat > api/index.py << 'EOF'
+from main import app
+
+# Vercel用のハンドラー
+handler = app
+EOF
+```
