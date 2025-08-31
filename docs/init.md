@@ -1,4 +1,4 @@
-# プロジェクト初期
+# プロジェクトの初期化
 
 ## Expoプロジェクト初期化
 
@@ -6,8 +6,8 @@
 # Expo プロジェクト作成（expo-router テンプレート使用）
 npx create-expo-app@latest . --template blank
 
-# 依存関係をインストール
-npm init -y
+# Web向け依存関係をインストール
+npx expo install react-dom react-native-web @expo/metro-runtime
 
 # 開発用依存関係をインストール
 npm install --save-dev oxlint@^1.7.0
