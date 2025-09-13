@@ -4,7 +4,8 @@
 
 ```bash
 # Expo プロジェクト作成（expo-router テンプレート使用）
-npx create-expo-app@latest . --template blank
+npx create-expo-app@latest client --template blank
+mv -f client/* .
 
 # Web向け依存関係をインストール
 npx expo install react-dom react-native-web @expo/metro-runtime
